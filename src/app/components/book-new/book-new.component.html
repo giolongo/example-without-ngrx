@@ -18,8 +18,10 @@
   </div>
   <div>
     <label>Sesso</label>
-    <input type="radio" required name="sesso" [(ngModel)]="newBook.author.gender" [value]="GENDER.M"> {{GENDER.M}}
-    <input type="radio" required name="sesso" [(ngModel)]="newBook.author.gender" [value]="GENDER.F"> {{GENDER.F}}
+    <div>
+      <input type="radio" required name="sesso" [(ngModel)]="newBook.author.gender" [value]="GENDER.M"> {{GENDER.M}}
+      <input type="radio" required name="sesso" [(ngModel)]="newBook.author.gender" [value]="GENDER.F"> {{GENDER.F}}
+    </div>
   </div>
   <button type="submit">Salva</button>
 </form>
