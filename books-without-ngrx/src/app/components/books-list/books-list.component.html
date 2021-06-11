@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>Titolo</th>
+    <th>N. Pagine</th>
+    <th>Autore</th>
+  </tr>
+  <tr *ngFor="let book of books">
+    <td>{{book.title}}</td>
+    <td>{{book.pages}}</td>
+    <td>{{book.author.name_with_prefix}}</td>
+  </tr>
+</table>

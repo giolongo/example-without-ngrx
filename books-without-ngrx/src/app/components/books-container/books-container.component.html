@@ -4,8 +4,6 @@
   </div>
   <div class="book-list-size">
     Lista dei libri
-    <div *ngFor="let book of books$|async">
-      {{book.author.name_with_prefix}}
-    </div>
+    <app-books-list [books]="books$ | async"></app-books-list>
   </div>
 </div>
