@@ -1,9 +1,8 @@
 <div class="container">
   <div class="new-book-size">
-    Nuovo Libro
+    <app-book-new (saveBook)="saveBook($event)"></app-book-new>
   </div>
   <div class="book-list-size">
-    Lista dei libri
-    <app-books-list [books]="books$ | async"></app-books-list>
+    <app-books-list [books]="books" (refresh)="getBooks()" (remove)="remove($event)"></app-books-list>
   </div>
 </div>

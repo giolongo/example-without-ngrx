@@ -12,6 +12,7 @@ export class BookAdapterService extends Adapter<Book>{
 
   decode(item: Book): Book {
     const book = new Book();
+    book.id = item.id;
     book.title = item.title;
     book.pages = item.pages;
     book.author = this.personAdapterService.decode(item.author);

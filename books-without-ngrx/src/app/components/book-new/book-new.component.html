@@ -1,0 +1,25 @@
+<h2>Nuovo libro</h2>
+<form ngNativeValidate (ngSubmit)="saveBookFn()" class="text-center">
+  <div>
+    <label>Nome Libro</label>
+    <input type="text" required name="title" [(ngModel)]="newBook.title">
+  </div>
+  <div>
+    <label>Pagine</label>
+    <input type="number" step="1" min="1" required name="page" [(ngModel)]="newBook.pages">
+  </div>
+  <div>
+    <label>Nome Autore</label>
+    <input type="text" required name="title" [(ngModel)]="newBook.author.name">
+  </div>
+  <div>
+    <label>Cognome Autore</label>
+    <input type="text" required name="title" [(ngModel)]="newBook.author.surname">
+  </div>
+  <div>
+    <label>Sesso</label>
+    <input type="radio" required name="sesso" [(ngModel)]="newBook.author.gender" [value]="GENDER.M"> {{GENDER.M}}
+    <input type="radio" required name="sesso" [(ngModel)]="newBook.author.gender" [value]="GENDER.F"> {{GENDER.F}}
+  </div>
+  <button type="submit">Salva</button>
+</form>
