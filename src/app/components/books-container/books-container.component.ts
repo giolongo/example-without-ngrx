@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RestService} from "../../services/rest.service";
 import {Book} from "../../classes/book";
-import {max} from "rxjs/operators";
+import _ from "lodash";
 
 @Component({
   selector: 'app-books-container',
@@ -11,6 +11,7 @@ import {max} from "rxjs/operators";
 export class BooksContainerComponent implements OnInit {
 
   public books: Book[] = [];
+  public bookSelected: Book;
 
   constructor(private restService: RestService) {
     this.getBooks();
@@ -28,6 +29,25 @@ export class BooksContainerComponent implements OnInit {
   }
 
   public saveBook(book: Book): void {
+    if(book.id){
+      this.modifyBook(book);
+    }else {
+      this.saveNewBook(book);
+    }
+  }
+
+  public selectBook(book: Book): void {
+    this.bookSelected = _.cloneDeep(book);
+  }
+
+  public modifyBook(bookModified: Book): void {
+    const index = this.books.findIndex(book => book.id === bookModified.id);
+    if(index !== -1) {
+      this.books[index] = bookModified;
+    }
+  }
+
+  public saveNewBook(book: Book): void {
     const ids = this.books.map(book => book.id);
     const maxId = ids.reduce((a, b) => Math.max(a, b));
     book.id = maxId + 1

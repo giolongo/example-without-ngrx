@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, Component, Input, OnChanges, Output, EventEmitter} from '@angular/core';
-import {Book} from "../../classes/book";
+import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
+import {Book} from '../../classes/book';
 
 @Component({
   selector: 'app-books-list',
@@ -10,7 +10,8 @@ export class BooksListComponent implements OnChanges {
 
   @Input() books: Book[];
   @Output() remove = new EventEmitter<number>()
-  @Output() refresh = new EventEmitter()
+  @Output() modify = new EventEmitter<Book>()
+  @Output() refresh = new EventEmitter<void>()
   constructor() { }
 
   ngOnChanges(): void {

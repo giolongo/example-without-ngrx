@@ -1,26 +1,26 @@
 <h2>Nuovo libro</h2>
 <form ngNativeValidate (ngSubmit)="saveBookFn()" class="text-center">
   <div>
-    <label>Nome Libro</label>
-    <input type="text" required name="title" [(ngModel)]="newBook.title">
+    <label for="title">Nome Libro</label>
+    <input type="text" required name="title" id="title" [(ngModel)]="book.title">
   </div>
   <div>
-    <label>Pagine</label>
-    <input type="number" step="1" min="1" required name="page" [(ngModel)]="newBook.pages">
+    <label for="page">Pagine</label>
+    <input type="number" step="1" min="1" required id="page" name="page" [(ngModel)]="book.pages">
   </div>
   <div>
-    <label>Nome Autore</label>
-    <input type="text" required name="title" [(ngModel)]="newBook.author.name">
+    <label for="name">Nome Autore</label>
+    <input type="text" required id="name" name="name" [(ngModel)]="book.author.name">
   </div>
   <div>
-    <label>Cognome Autore</label>
-    <input type="text" required name="title" [(ngModel)]="newBook.author.surname">
+    <label for="surname">Cognome Autore</label>
+    <input type="text" required id="surname" name="surname" [(ngModel)]="book.author.surname">
   </div>
   <div>
-    <label>Sesso</label>
+    <label for="gender">Sesso</label>
     <div>
-      <input type="radio" required name="sesso" [(ngModel)]="newBook.author.gender" [value]="GENDER.M"> {{GENDER.M}}
-      <input type="radio" required name="sesso" [(ngModel)]="newBook.author.gender" [value]="GENDER.F"> {{GENDER.F}}
+      <input type="radio" id="gender" required name="sesso" [(ngModel)]="book.author.gender" [value]="GENDER.M"> {{GENDER.M}}
+      <input type="radio" id="gender" required name="sesso" [(ngModel)]="book.author.gender" [value]="GENDER.F"> {{GENDER.F}}
     </div>
   </div>
   <button type="submit">Salva</button>
